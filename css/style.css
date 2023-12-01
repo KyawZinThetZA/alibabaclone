@@ -1,0 +1,181 @@
+.homes{
+    width: 100%;
+    height: 80vh;
+    background-image: url('../img/home.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mainHeaderBar{
+    position: relative;
+}
+
+.main-headers.toggleNav{
+    width: 100%;
+    background: white;
+    color: #000;
+    position: fixed !important;
+    top: 0;
+    border-bottom: 1px solid gray;
+    z-index: 100;
+}
+
+.HoverParent .hoverBoxs{
+    display: none;
+}
+.HoverParent:hover .hoverBoxs{
+    display: block;
+}
+
+.banners{
+    width: 100%;
+    height: 90%;
+}
+
+.banners .input-boxs{
+    width: 786px;
+    height: 56px;
+    border-radius: 30px;
+}
+
+.input-boxs input,
+.nav-input-boxs input{
+    width: 560px;
+    line-height: 36px;
+    margin: 0 28px;
+    color: #696969;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+}
+
+.nav-input-boxs{
+    width: 750px;
+    height: 40px;
+}
+
+.nav-input-boxs input{
+    width: 383px;
+}
+
+.input-boxs input:focus,
+.nav-input-boxs input:focus{
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+select.border-r-2.px-3.text-sm {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: fit-content;
+}
+
+.dropdown:hover > .dropdown-content {
+	display: block;
+    min-width: 300px;
+}
+
+.featureDD{
+    width: 1905px;
+    height: 300px;
+    background: orange;
+}
+
+/* navcard section */
+
+.navcard{
+    background: linear-gradient(rgba(255, 255, 255, 0.078),rgba(255, 255, 255, 0.037));
+    border-radius: 30px;
+}
+
+/* factory section */
+.cardContainer .card-items{
+    background: url('../img/factoryImg1.avif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cardContainer .card-items:nth-child(2){
+    background: url('../img/factoryImg2.avif');
+    background-position: center;
+    background-size: cover;
+}
+
+.cardContainer .card-items:nth-child(3){
+    background: url('../img/factoryImg3.avif');
+    background-position: center;
+    background-size: cover;
+}
+
+/* protection section */
+
+.protectionSection{
+    width: 100%;
+    /* height: 90vh; */
+    padding: 100px 0;
+    background: url('../img/protectionBG.avif');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.boxs{
+    background: linear-gradient(rgba(255,255,255,0.2),rgba(255,255,255,0.2));
+    backdrop-filter: blur(50px);
+    border-radius: 20px;
+}
+
+.getstart{
+    width: 100%;
+    /* height: 40vh; */
+    padding: 50px 0;
+    background: url('../img/getstart.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* owl-carousel */
+
+.owl-dots{
+    display: none;
+}
+
+.lSSlideOuter .lSPager.lSpg{
+    display: none;
+}
+
+.lSAction > .lSPrev,
+.lSAction > .lSNext{
+    background-color: #a4a4a4;
+    border-radius: 50%;
+}
+
+button.owl-prev{
+    font-size: 32px !important;
+    color: #000;
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    transform: translateY(-50%);
+}
+
+button.owl-next{
+    font-size: 32px !important;
+    color: #000;
+    position: absolute;
+    top: 30%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+
+.numPicker input:focus{
+    border: none;
+    outline: none;
+    box-shadow: none;
+}

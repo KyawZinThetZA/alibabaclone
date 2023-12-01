@@ -1,0 +1,2383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail Page</title>
+
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./libs/OwlCarousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="./libs/OwlCarousel/dist/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="./libs/lightslider-master/dist/css/lightslider.css">
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <style>
+        .main-headers.fixedNav {
+            width: 100%;
+            padding: 20px 0;
+            background: white;
+            border-bottom: 1px solid gray;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+        }
+
+        .lSSlideOuter.vertical .lSGallery {
+            left: 0;
+        }
+
+        .lSSlideOuter .lSPager.lSpg > li a{
+            display: none;
+        }
+
+        .fixedpriceCard{
+            position: fixed;
+            right: 10%;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="">
+        <img src="./img/topheaderimg.avif" alt="">
+    </div>
+
+    <!-- navbar section -->
+    <section class="bg-white border-b border-gray-300">
+        <div id="mainHeaderBar" class="text-black">
+            <div class="flex justify-around items-center py-3 main-headers">
+                <div class="brands">
+                    <a href="index.html">
+                        <img src="./img/icon.avif" id="bannerImgs" width="200px">
+                    </a>
+                </div>
+
+                <div
+                    class="nav-input-boxs bg-white flex justify-center items-center border border-gray-400 rounded-full">
+                    <select for="search" class="border-r-2 px-3 text-sm">
+                        <option value="pro">Products</option>
+                        <option value="man">Manufacturers</option>
+                        <option value="sup">Suppliers</option>
+                    </select>
+                    <div class="w-[1px] h-6 bg-[#222]"></div>
+                    <input type="text" name="search" id="search" placeholder="bell tent flooring">
+                    <i class="fa-solid fa-camera text-black mx-4 hover:text-orange-600 cursor-pointer"></i>
+                    <button type="button" class="bg-orange-600 px-3 py-1 rounded-full text-white me-1"><i
+                            class="fa-solid fa-magnifying-glass me-2"></i>Search</button>
+                </div>
+
+                <ul class="flex justify-between items-center">
+                    <li class="mx-5 relative HoverParent">
+                        <a href="#" class="flex justify-center items-center">Ship to:<img src="./img/mm.png"
+                                class="mx-2" width="20"> MM</a>
+
+                        <div
+                            class="w-[380px] h-[366px] shadow-lg rounded-lg bg-white absolute top-[100%] left-[-120%] cursor-pointer p-[20px] hoverBoxs border border-gray-300">
+                            <h1 class="text-black font-semibold">Specify your location</h1>
+                            <p class="text-black text-sm mt-[8px] mb-[20px]">Shipping options and fees vary based on
+                                your location</p>
+                            <div class="grid">
+                                <button type="button" class="bg-orange-600 h-[36px] rounded-full">Sign in to add
+                                    address</button>
+                            </div>
+                            <div class="relative w-[100%] h-[1px] bg-gray-200 my-6">
+                                <p
+                                    class="absolute inline-block bg-white text-[#bbb] text-[14px] left-[50%] translatex-[-50%] top-[-9px]">
+                                    OR</p>
+                            </div>
+
+
+                            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-3">
+                                <option value="MM">🇲🇲&emsp;Myanmar</option>
+                                <option value="US">🇺🇸&emsp;United States</option>
+                                <option value="CA">🇨🇦&emsp;Canada</option>
+                                <option value="FR">🇫🇷&emsp;France</option>
+                                <option value="DE">🇩🇪&emsp;Germany</option>
+                                <option value="NL">🇳🇱&emsp;Netherlands</option>
+                            </select>
+
+                            <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-3" placeholder="Enter city or Zip Code">
+
+                            <div class="grid">
+                                <button type="button" class="bg-orange-600 h-[36px] rounded-full">Save</button>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li class="mx-5 relative HoverParent"><a href="#" class="flex justify-center items-center"><i
+                                class="fa-solid fa-globe mr-2"></i> English-USD</a>
+                        
+                                <div
+                                class="w-[380px] shadow-lg rounded-lg bg-white absolute top-[100%] left-[-120%] cursor-pointer border border-gray-300 p-[20px] hoverBoxs">
+                                <h1 class="text-black font-semibold">Set language and currency</h1>
+                                <p class="text-black text-sm mt-[8px] mb-[20px]">Select your preferred language and currency. You can update the settings at any time.</p>    
+
+                                <label for="countries" class="text-gray-400">Language</label>
+                                <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-3">
+                                    <option value="MM">Myanmar</option>
+                                    <option value="US">United States</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="FR">Japan</option>
+                                    <option value="DE">Singapore</option>
+                                    <option value="NL">Australian</option>
+                                </select>
+
+                                <label for="countries" class="text-gray-400">Currency</label>
+                                <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-3">
+                                    <option value="MM">MMK - Myanmar Kyat</option>
+                                    <option value="US">USD - US Dollar</option>
+                                    <option value="CA">CAD - Canadian Dollar</option>
+                                    <option value="FR">JPY - Janpnese Yen</option>
+                                    <option value="DE">SGD - Singapore Dollar</option>
+                                    <option value="NL">AUD - Australian Dollar</option>
+                                </select>    
+    
+                                <div class="grid">
+                                    <button type="button" class="bg-orange-600 h-[36px] rounded-full">Save</button>
+                                </div>
+                            </div>
+                    </li>
+                    <li class="mx-5 relative HoverParent">
+                        <i class="fa-regular fa-user"></i> <a href="#" class="hover:underline">Sign In</a>
+                        <div
+                                class="w-[380px] shadow-lg rounded-lg bg-white absolute top-[100%] left-[-150%] cursor-pointer p-[20px] border border-gray-300 hoverBoxs">
+                                <h1 class="text-black font-semibold">Welcome to Alibaba.com!</h1>
+                                <div class="grid my-4">
+                                    <button type="button" class="bg-orange-600 h-[36px] rounded-full">Sign In</button>
+                                </div>
+
+                                <p class="text-black text-sm text-center my-4">Or, continue with:</p>
+
+                                <div class="flex justify-center gap-10">
+                                    <img src="./img/navface.svg" class="w-10 h-10">
+                                    <img src="./img/navgoogle.svg" class="w-10 h-10">
+                                    <img src="./img/navlinkin.svg" class="w-10 h-10">
+                                    <img src="./img/navtwitter.svg" class="w-10 h-10">
+                                </div>
+
+                                <p class="text-gray-400 text-[12px] mt-4 pb-5">
+                                    By signing in via social media, I agree to <a href="javascript:void(0);" class="underline">the Alibaba.com Free Membership Agreement and Privacy Policy,</a> and to receive emails about the platform’s products and services.
+                                </p>
+                            </div>
+                    </li>
+                    <li class="mx-5"><button
+                            class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
+                            Sign Up
+                        </button></li>
+                </ul>
+            </div>
+            <div class="sub-headers flex justify-around items-center pb-3">
+                <ul class="flex justify-center items-center">
+                    <li class="me-4 headerBugger">
+                        <i class="fa-solid fa-list me-2"></i>
+                        <div class="dropdown inline-block relative">
+                            <span class="font-semibold py-2 px-4 rounded inline-flex items-center">
+                                <span>All categories</span>
+                            </span>
+                            <ul
+                                class="dropdown-content absolute hidden -left-[329px] w-[1909px] h-[350px] bg-white border-t border-gray-400 text-gray-700 z-[999]">
+                                <li class="dropdown hover:text-black cursor-pointer"><a
+                                        class="bg-white py-2 block whitespace-no-wrap ms-[300px]" href="#">My
+                                        categories</a>
+                                    <ul
+                                        class="dropdown-content absolute hidden text-gray-700 pl-5 ps-[300px] ml-[300px] -mt-10">
+                                        <li class="dropdown"><a href="#"
+                                                class="bg-white py-2 px-4 block whitespace-no-wrap hover:underline">Beauty</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[40px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy1.webp" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy2.webp" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy3.webp" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy4.webp" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy005.webp" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy006.webp" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy007.webp" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy008.webp" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#"
+                                                class="py-2 px-4 block whitespace-no-wrap hover:underline">Gifts
+                                                & Crafts</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[80px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard1.jpg" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard2.jpg" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard3.png" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard4.jpg" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard5.jpg" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard6.jpg" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard7.png" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard8.jpg" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#" class="py-2 px-4 block whitespace-no-wrap hover:underline">Home
+                                                & Garden</a>
+                                            <ul
+                                                class="dropdown-content absolute bg-white hidden text-gray-700 pl-5 ml-[150px] -mt-[120px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt1.jpg" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt2.jpg" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt3.jpg" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt4.jpg" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt5.jpg" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy006.webp" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy007.webp" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy008.webp" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="py-2 px-4 block whitespace-no-wrap hover:underline">Mother
+                                                Kids & Toys</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[160px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy1.webp" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy2.webp" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy3.webp" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy4.webp" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy005.webp" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy006.webp" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy007.webp" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy008.webp" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#"
+                                                class="py-2 px-4 block whitespace-no-wrap hover:underline">Tools
+                                                & Hardware</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[200px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard6.jpg" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard1.jpg" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard2.jpg" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard3.png" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard4.jpg" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard5.jpg" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard7.png" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard8.jpg" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown ms-[300px] hover:text-black cursor-pointer">
+                                    <a class="py-2 block whitespace-no-wrap" href="#">Home Decor</a>
+                                    <ul class="dropdown-content absolute hidden text-gray-700 pl-5 ps-[300px] -mt-20">
+                                        <li class="dropdown"><a href="#"
+                                                class="bg-white py-2 px-4 block whitespace-no-wrap hover:underline">Beauty</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[40px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard1.jpg" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard2.jpg" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard3.png" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard4.jpg" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard5.jpg" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard6.jpg" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard7.png" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard8.jpg" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#"
+                                                class="py-2 px-4 block whitespace-no-wrap hover:underline">Gifts
+                                                & Crafts</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[80px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy1.webp" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy2.webp" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy3.webp" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy4.webp" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy005.webp" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy006.webp" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy007.webp" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy008.webp" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#" class="py-2 px-4 block whitespace-no-wrap hover:underline">Home
+                                                & Garden</a>
+                                            <ul
+                                                class="dropdown-content absolute bg-white hidden text-gray-700 pl-5 ml-[150px] -mt-[120px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt1.jpg" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt2.jpg" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt3.jpg" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt4.jpg" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt5.jpg" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy006.webp" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy007.webp" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy008.webp" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="py-2 px-4 block whitespace-no-wrap hover:underline">Mother
+                                                Kids & Toys</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[160px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy1.webp" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy2.webp" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy3.webp" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy4.webp" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy005.webp" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy006.webp" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy007.webp" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy008.webp" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#"
+                                                class="py-2 px-4 block whitespace-no-wrap hover:underline">Tools
+                                                & Hardware</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[200px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard1.jpg" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard2.jpg" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard3.png" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard4.jpg" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard5.jpg" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard6.jpg" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard7.png" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard8.jpg" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown ms-[300px] hover:text-black cursor-pointer">
+                                    <a class="py-2 block whitespace-no-wrap" href="#">Industrial</a>
+                                    <ul
+                                        class="dropdown-content absolute hidden text-gray-700 pl-5 ps-[300px] -mt-[120px]">
+                                        <li class="dropdown"><a href="#"
+                                                class="bg-white py-2 px-4 block whitespace-no-wrap hover:underline">Beauty</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[40px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy1.webp" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy2.webp" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy3.webp" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy4.webp" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy005.webp" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy006.webp" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy007.webp" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy008.webp" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#"
+                                                class="py-2 px-4 block whitespace-no-wrap hover:underline">Gifts
+                                                & Crafts</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[80px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard1.jpg" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard2.jpg" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard3.png" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard4.jpg" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard6.jpg" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard5.jpg" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard7.png" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard8.jpg" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#" class="py-2 px-4 block whitespace-no-wrap hover:underline">Home
+                                                & Garden</a>
+                                            <ul
+                                                class="dropdown-content absolute bg-white hidden bg-gray-200 text-gray-700 pl-5 ml-[150px] -mt-[120px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt1.jpg" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy2.webp" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt2.jpg" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy4.webp" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt4.jpg" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy006.webp" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt5.jpg" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy008.webp" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="py-2 px-4 block whitespace-no-wrap hover:underline">Mother
+                                                Kids & Toys</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[160px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy1.webp" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy2.webp" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy3.webp" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy4.webp" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy005.webp" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy006.webp" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy007.webp" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy008.webp" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#"
+                                                class="py-2 px-4 block whitespace-no-wrap hover:underline">Tools
+                                                & Hardware</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[200px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard1.jpg" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard2.jpg" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard3.png" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard4.jpg" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard5.jpg" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard6.jpg" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard7.png" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard8.jpg" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown ms-[300px] hover:text-black cursor-pointer">
+                                    <a class="py-2 block whitespace-no-wrap" href="#">Health & Personal Care</a>
+                                    <ul
+                                        class="dropdown-content absolute hidden text-gray-700 pl-5 ps-[300px] -mt-[160px]">
+                                        <li class="dropdown"><a href="#"
+                                                class="bg-white py-2 px-4 block whitespace-no-wrap hover:underline">Beauty</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[40px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy1.webp" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy2.webp" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy3.webp" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy4.webp" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy005.webp" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy006.webp" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy007.webp" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy008.webp" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#"
+                                                class="py-2 px-4 block whitespace-no-wrap hover:underline">Gifts
+                                                & Crafts</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[80px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard1.jpg" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard2.jpg" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy3.webp" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt1.jpg" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy005.webp" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard3.png" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy007.webp" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy008.webp" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#" class="py-2 px-4 block whitespace-no-wrap hover:underline">Home
+                                                & Garden</a>
+                                            <ul
+                                                class="dropdown-content absolute bg-white hidden text-gray-700 pl-5 ml-[150px] -mt-[120px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt1.jpg" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt2.jpg" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt3.jpg" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard1.jpg" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard2.jpg" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy006.webp" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt5.jpg" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy008.webp" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="py-2 px-4 block whitespace-no-wrap hover:underline">Mother
+                                                Kids & Toys</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[160px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy1.webp" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy2.webp" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy3.webp" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy4.webp" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy005.webp" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy006.webp" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy007.webp" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy008.webp" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#"
+                                                class="py-2 px-4 block whitespace-no-wrap hover:underline">Tools
+                                                & Hardware</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[200px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard1.jpg" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard2.jpg" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard3.png" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt1.jpg" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy005.webp" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard4.jpg" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt4.jpg" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy008.webp" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown ms-[300px] hover:text-black cursor-pointer">
+                                    <a class="py-2 block whitespace-no-wrap" href="#">Faction And Beauty</a>
+                                    <ul
+                                        class="dropdown-content absolute hidden text-gray-700 pl-5 ps-[300px] -mt-[200px]">
+                                        <li class="dropdown"><a href="#"
+                                                class="bg-white py-2 px-4 block whitespace-no-wrap hover:underline">Beauty</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[40px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt1.jpg" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt2.jpg" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt3.jpg" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt4.jpg" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard1.jpg" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard2.jpg" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard3.png" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy008.webp" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#"
+                                                class="py-2 px-4 block whitespace-no-wrap hover:underline">Gifts
+                                                & Crafts</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[80px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy1.webp" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy2.webp" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy3.webp" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy4.webp" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy005.webp" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy006.webp" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy007.webp" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy008.webp" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#" class="py-2 px-4 block whitespace-no-wrap hover:underline">Home
+                                                & Garden</a>
+                                            <ul
+                                                class="dropdown-content absolute bg-white hidden text-gray-700 pl-5 ml-[150px] -mt-[120px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard1.jpg" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard2.jpg" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard4.jpg" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard3.png" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy005.webp" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt3.jpg" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt2.jpg" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt1.jpg" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="py-2 px-4 block whitespace-no-wrap hover:underline">Mother
+                                                Kids & Toys</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[160px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy008.webp" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt1.jpg" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy007.webp" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard1.jpg" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy005.webp" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy006.webp" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy007.webp" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard8.jpg" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#"
+                                                class="py-2 px-4 block whitespace-no-wrap hover:underline">Tools
+                                                & Hardware</a>
+                                            <ul
+                                                class="dropdown-content absolute hidden bg-white text-gray-700 pl-5 ml-[150px] -mt-[200px] w-[1000px]">
+                                                <h1 class="font-semibold ms-10 mb-3">Mother , Kids & Toys ></h1>
+                                                <div class="grid grid-cols-4 gap-3">
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard2.jpg" class="w-[50px] h-[50px] rounded-full">Stuffed
+                                                        Animal Toy
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy2.webp" class="w-[50px] h-[50px] rounded-full">Toy Gun
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/gif1.gif" class="w-[50px] h-[50px] rounded-full">Ride-on-car
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy4.webp" class="w-[50px] h-[50px] rounded-full">Cabinat
+                                                        Locks
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/mkt1.jpg" class="w-[50px] h-[50px] rounded-full">Other
+                                                        Educational
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy006.webp" class="w-[50px] h-[50px] rounded-full">Girls
+                                                        Dress
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/toy007.webp" class="w-[50px] h-[50px] rounded-full">Girl
+                                                        Collection
+                                                    </div>
+                                                    <div class="mb-3 text-sm flex flex-col justify-center items-center">
+                                                        <img src="./img/giftcard6.jpg" class="w-[50px] h-[50px] rounded-full">Baby
+                                                        Romper
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="me-4 headerBugger dropdown"> <a href="#">Fearute Section</a>
+                        <ul
+                            class="dropdown-content absolute bg-white hidden text-gray-700 w-[1908px] h-[350px] border-t border-gray-400 -ms-[480px] z-[999]">
+                            <li class="container w-[1906px] bg-white p-5 flex justify-around items-center">
+                                <div
+                                    class="flex flex-col gap-3 items-center border w-[280px] h-[140px] p-5 rounded shadow mx-3">
+                                    <i class="fa-solid fa-award"></i>
+                                    <p>Top Ranking</p>
+                                </div>
+                                <div
+                                    class="flex flex-col gap-3 items-center border w-[280px] h-[140px] p-5 rounded shadow mx-3">
+                                    <i class="fa-regular fa-message"></i>
+                                    <p>New Arrivals</p>
+                                </div>
+                                <div
+                                    class="flex flex-col gap-3 items-center border w-[280px] h-[140px] p-5 rounded shadow mx-3">
+                                    <i class="fa-solid fa-tag"></i>
+                                    <p>Saving Sportlights</p>
+                                </div>
+                                <div class="flex flex-col gap-3 ms-28 ps-20 border-s-2 border-gray-300">
+                                    <p>sample center</p>
+                                    <p>trade shows</p>
+                                    <p>tips</p>
+                                    <p>LIVE</p>
+                                    <p>global suppliers</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="me-4 headerBugger dropdown"> <a href="#">Trade selections</a>
+                        <ul
+                            class="dropdown-content absolute bg-white hidden text-gray-700 w-[1906px] h-[350px] border-t border-gray-400 -ms-[610px] z-[999]">
+                            <li class="container w-full p-5 flex justify-around items-center mx-auto">
+                                <div class="flex flex-col gap-3  p-10 mx-3 w-[400px]">
+                                    <img src="https://s.alicdn.com/@img/imgextra/i2/O1CN01d18R1Z1H1GuiHHzpS_!!6000000000697-55-tps-212-32.svg"
+                                        width="200px">
+                                    <p>Enjoy protection from payment to delivery</p>
+                                    <button type="button" class="px-3 py-2 bg-orange-500 rounded-full">Learn
+                                        More</button>
+                                </div>
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex justify-center items-center w-[350px]">
+                                            <img src="https://s.alicdn.com/@img/imgextra/i4/O1CN010KADAP2638vcOIcv4_!!6000000007605-55-tps-70-70.svg"
+                                                alt="">
+                                            <p>Safe & easy payments</p><i class="fa-solid fa-arrow-right ms-5"></i>
+                                        </div>
+                                        <div class="flex justify-center items-center w-[350px]">
+                                            <img src="https://s.alicdn.com/@img/imgextra/i4/O1CN010KADAP2638vcOIcv4_!!6000000007605-55-tps-70-70.svg"
+                                                alt="">
+                                            <p>Money-back policy</p><i class="fa-solid fa-arrow-right ms-5"></i>
+
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-around items-center">
+                                        <div class="flex justify-center items-center w-[350px] ms-5">
+                                            <img src="https://s.alicdn.com/@img/imgextra/i2/O1CN01Zsnn5f28yyAQPbYyz_!!6000000008002-55-tps-70-70.svg"
+                                                alt="">
+                                            <p>Shipping & logistics services</p><i
+                                                class="fa-solid fa-arrow-right ms-5"></i>
+                                        </div>
+                                        <div class="flex justify-center items-center w-[350px] -me-[15px]">
+                                            <img src="https://s.alicdn.com/@img/imgextra/i4/O1CN01hoxDoj1HV2eSjAU58_!!6000000000762-55-tps-70-70.svg"
+                                                alt="">
+                                            <p>After-sales protections</p><i class="fa-solid fa-arrow-right ms-5"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="flex justify-center items-center" style="margin-left: -200px;">
+                    <li class="me-4 headerBugger dropdown"> <a href="#">Buyer Central</a>
+                        <ul
+                            class="dropdown-content absolute hidden left-[0%] text-gray-700 w-[1905px] bg-white border-t border-gray-300 z-[999]">
+                            <li class="container w-[100%] px-16 flex justify-around py-5 mx-auto">
+                                <div class="flex flex-col gap-3 items-start me-10">
+                                    <h1 class="font-semibold text-sm">Get Started</h1>
+                                    <p class="text-gray-400">Top Ranking</p>
+                                </div>
+
+                                <div class="flex flex-col gap-3 items-start me-10">
+                                    <h1 class="font-semibold text-sm">Why Alibaba.com</h1>
+                                    <p class="text-gray-400">How sourcing works</p>
+                                    <p class="text-gray-400">Membership program</p>
+                                </div>
+
+                                <div class="flex flex-col gap-3 items-start me-10">
+                                    <h1 class="font-semibold text-sm">Trade services</h1>
+                                    <p class="text-gray-400">Trade Assurance</p>
+                                    <p class="text-gray-400">Logistics Services</p>
+                                    <p class="text-gray-400">Letter of Credit</p>
+                                    <p class="text-gray-400">Production monitoring & inspection <br> services</p>
+                                    <p class="text-gray-400">Tax Compliance Program</p>
+                                </div>
+
+                                <div class="flex flex-col gap-3 items-start me-10">
+                                    <h1 class="font-semibold text-sm">Resources</h1>
+                                    <p class="text-gray-400">Success stories</p>
+                                    <p class="text-gray-400">Blogs</p>
+                                    <p class="text-gray-400">Industry reports</p>
+                                    <p class="text-gray-400">Help Center</p>
+                                </div>
+
+                                <div class="flex flex-col gap-3 items-start me-10">
+                                    <h1 class="font-semibold text-sm">Webinars</h1>
+                                    <p class="text-gray-400">Overview</p>
+                                    <p class="text-gray-400">Meet the peers</p>
+                                    <p class="text-gray-400">Ecommerce Academy</p>
+                                    <p class="text-gray-400">How to source on Alibaba.com</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="me-4 headerBugger dropdown"> <a href="#">Become a suppliler</a>
+                        <ul
+                            class="dropdown-content absolute left-[0%] hidden text-gray-700 px-16 w-[1905px] bg-white border-t border-gray-300 z-[999]">
+                            <li class="container w-full p-8 flex justify-around items-center mx-auto">
+                                <div
+                                    class="flex flex-col gap-3 items-center border w-[280px] h-[140px] p-5 rounded shadow mx-3">
+                                    <i class="fa-brands fa-intercom"></i>
+                                    <p>For Buyer</p>
+                                </div>
+                                <div
+                                    class="flex flex-col gap-3 items-center border w-[280px] h-[140px] p-5 rounded shadow mx-3">
+                                    <i class="fa-solid fa-building-user"></i>
+                                    <p>For Supplier</p>
+                                </div>
+                                <div
+                                    class="flex flex-col gap-3 items-center border w-[280px] h-[140px] p-5 rounded shadow mx-3">
+                                    <i class="fa-solid fa-building-user"></i>
+                                    <p>For Supplier</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="me-4 headerBugger dropdown"> <a href="#">Help Center</a>
+                        <ul
+                            class="dropdown-content absolute left-[0%] hidden text-gray-700 px-16 w-[1905px] bg-white border-t border-gray-400 z-[999]">
+                            <li class="container w-full p-5 flex justify-around items-center">
+                                <div
+                                    class="flex flex-col gap-3 items-center border w-[200px] h-[100px] p-5 rounded shadow mx-3">
+                                    <i class="fa-brands fa-intercom"></i>
+                                    <p>For Buyer</p>
+                                </div>
+                                <div
+                                    class="flex flex-col gap-3 items-center border w-[200px] h-[100px] p-5 rounded shadow mx-3">
+                                    <i class="fa-solid fa-building-user"></i>
+                                    <p>For Supplier</p>
+                                </div>
+                                <div class="flex flex-col gap-3 ms-28 ps-20 border-s-2 border-gray-300">
+                                    <p>sample center</p>
+                                    <p>trade shows</p>
+                                    <p>tips</p>
+                                    <p>LIVE</p>
+                                    <p>global suppliers</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="me-4 dropdown headerBugger"> <a href="#">Get the app</a>
+                        <ul
+                            class="dropdown-content absolute left-[0] hidden text-gray-700 px-16 w-[1905px] h-[350px] bg-white border-t border-gray-400 z-[999]">
+                            <li class="container w-full p-5 flex justify-around items-center mt-20 mx-auto">
+                                <div class="flex justify-center items-center">
+                                    <div class="w-[400px] infos">
+                                        <h1 class="text-lg font-semibold">Get the Alibaba.com app</h1>
+                                        <p class="text-sm">Find products, communicate with suppliers, and manage and pay
+                                            for your orders with the Alibaba.com app anytime, anywhere.</p>
+                                        <a href="#" class="inline-block underline mt-5">Learn more</a>
+                                    </div>
+                                    <div class="flex justify-center items-center w-[309px] downloads">
+                                        <div class="mx-3">
+                                            <img src="./img/appstore.avif" width="149px">
+                                            <img src="./img/playstore.avif" width="149px">
+                                        </div>
+                                        <div class="qrs">
+                                            <img src="./img/QRimg.png" width="120px">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- product details section -->
+    <section class="py-5">
+        <div class="container mx-auto">
+            <div class="flex justify-between">
+                <div class="">
+                    <h1 class="font-semibold">Cricket Gear Hardball Cricket Bat CA Plus English Willow 8000 Cricket Bat
+                    </h1>
+                    <p class="text-sm text-gray-500">No reviews yet</p>
+                    <div class="flex mt-3 items-center">
+                        <img src="./img/detail/companyLogo.webp" class="w-[28px] h-[28px]">
+                        <span>HAND TOOLS TRADING CORPORATION . 3 yrs .</span>
+                        <img src="./img/detail/pk.png" class="w-[16px]"> <span class="mx-2">PK</span>
+                    </div>
+                    <div class="mt-5">
+                        <ul id="vertical" class="w-[800px]">
+                            <li data-thumb="./img/detail/p1-1b.webp" class="">
+                                <img src="./img/detail/p1-1b.webp" class="mx-auto" width="500px"
+                                    style="height: 500px;" />
+                            </li>
+                            <li data-thumb="./img/detail/p1-5a.webp">
+                                <img src="./img/detail/p1-5b.webp" class="mx-auto" style="height: 500px;" />
+                            </li>
+                            <li data-thumb="./img/detail/p1-1a.webp">
+                                <img src="./img/detail/p1-1b.webp" class="mx-auto" style="height: 500px;" />
+                            </li>
+                            <li data-thumb="./img/detail/p1-4a.webp">
+                                <img src="./img/detail/p1-4b.webp" class="mx-auto" style="height: 500px;" />
+                            </li>
+                            <li data-thumb="./img/detail/p1-5a.webp">
+                                <img src="./img/detail/p1-5b.webp" class="mx-auto" style="height: 500px;" />
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="cartSection p-10 border-2 border-gray-200 shadow rounded-lg w-[504px] h-[408px]">
+                    <span class="text-sm inline-block mb-3">#13 <a href="#" class="underline">Most popular in
+                            Bats</a></span>
+                    <div class="flex justify-between border-t border-b border-gray-200 py-5">
+                        <div class="">
+                            <p class="text-gray-400">5 - 9 pieces</p>
+                            <p class="text-orange-600 font-semibold text-3xl mb-2">MMK 178,511</p>
+                            <p class="text-gray-400">>= 50 pieces</p>
+                            <p class="text-3xl font-semibold">MMK 157,510</p>
+                        </div>
+                        <div class="">
+                            <p class="text-gray-400">10 - 49 pieces</p>
+                            <p class="text-3xl font-semibold">MMK 168,010</p>
+                        </div>
+                    </div>
+                    <div class="priceCards">
+                        <h1>Quantity</h1>
+                        <div class="numPicker">
+                            <button type="button"
+                                class="w-[30px] h-[30px] bg-gray-400 rounded-full hover:bg-orange-600 decreases">-</button>
+                            <input type="text" min="5" value="5" class="text-center border-none w-[60px] h-[20px] qtys"
+                                readonly>
+                            <button type="button" class="w-[30px] h-[30px] bg-gray-400 rounded-full hover:bg-orange-600 adds">+</button>
+                        </div>
+                        <div class="flex justify-around mt-10">
+                            <button class="w-[210px] h-[48px] rounded-full bg-orange-600 me-3">contact Suplier</button>
+                            <button class="w-[210px] h-[48px] rounded-full border border-black">Chat Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="ms-[200px] container w-[850px]">
+            <h1 class="font-semibold">Other recommendations for your business</h1>
+            <ul id="lightSlider">
+                <li>
+                    <a href="#">
+                        <img src="./img/detail/recom1.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <img src="./img/detail/recom2.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <img src="./img/detail/recom3.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <img src="./img/detail/recom4.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <img src="./img/detail/recom5.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <img src="./img/detail/recom6.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <img src="./img/detail/recom7.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <img src="./img/detail/recom8.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <img src="./img/detail/recom9.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="py-10 border-t border-gray-300">
+                <h1 class="text-xl font-semibold mb-3">Key attributes</h1>
+                <p class="font-[500] mb-3">Other attributes</p>
+                <table class="border-collapse border border-gray-300 w-[100%]">
+                    <tbody>
+                        <tr>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">Place of Origin</td>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">Pakistan</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">Brand Name</td>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">HTTC</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">Model Number</td>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">HTTC-C B-13083</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">Product Name</td>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">Willow Cricket Bat</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">Material</td>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">Willow Wood</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">Color</td>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">Customized Color</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">Logo</td>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">Customize Logo Acceptable</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">Feature</td>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">Comfortable</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">Keywords</td>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">Custom Made Cricket Bat</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">MOQ</td>
+                            <td class="border border-gray-300 w-[50%] h-[47px] px-5">5 PCS</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="py-10 border-t border-b border-gray-300">
+                <h1 class="text-xl font-semibold mb-3">Lead time</h1>
+                <table class="border-collapse border border-gray-300 w-[50%]">
+                    <tbody>
+                        <tr>
+                            <td class="border border-gray-300 text-sm w-[138px] h-[47px] px-3">Quantity (pieces)</td>
+                            <td class="border border-gray-300 text-sm w-[138px] h-[47px] px-3">1 - 500</td>
+                            <td class="border border-gray-300 text-sm w-[138px] h-[47px] px-3">> 500</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 text-sm w-[138px] h-[47px] px-3">Lead time (days)</td>
+                            <td class="border border-gray-300 text-sm w-[138px] h-[47px] px-3">7</td>
+                            <td class="border border-gray-300 text-sm w-[138px] h-[47px] px-3">To be negotiated</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="py-10 border-t border-b border-gray-300">
+                <h1 class="text-xl font-semibold mb-3">Know your supplier</h1>
+                <div class="flex items-center mb-3">
+                    <img src="./img/detail/companyLogo.webp" class="w-[48px] h-[48px]">
+                    <div class="text-sm">
+                        <a href="#" class="font-semibold underline">HAND TOOLS TRADING CORPORATION</a>
+                        <p>3 yrs . Located in PK</p>
+                    </div>
+                </div>
+                <div class="text-sm">
+                    <span>Response Time</span>
+                    <h1 class="font-bold text-xl">≤2h</h1>
+                </div>
+                <div class="supplierBtn mt-3">
+                    <button type="button" class="w-[388px] h-[36px] bg-[#ff6600] text-white rounded-full me-5">View more
+                        products</button>
+
+                    <button type="button" class="w-[388px] h-[36px] border border-black rounded-full">View
+                        profile</button>
+                </div>
+            </div>
+
+            <div class="py-5">
+                <h1 class="text-xl font-semibold mb-5">Product descriptions from the supplier</h1>
+                <div class="imgContainer w-[750px]">
+                    <h1 class="text-2xl font-semibold text-gray-400 capitalize border-b-2 border-gray-400">Product
+                        descriptions</h1>
+                    <img src="./img/product/product01.webp" class="w-[750px] h-[750px]">
+                    <img src="./img/product/product02.webp" class="w-[750px] h-[750px]">
+                    <img src="./img/product/product06.webp" class="w-[750px] h-[750px]">
+                    <img src="./img/product/product09.webp" class="w-[750px] h-[750px]">
+                    <img src="./img/product/product10.webp" class="w-[750px] h-[750px]">
+                </div>
+            </div>
+
+            <div class="specification py-5">
+                <h1 class="text-2xl font-semibold text-gray-400 capitalize border-b-2 border-gray-400 mb-3">
+                    Specification</h1>
+                <table class="border-collapse border border-gray-300 w-[100%]">
+                    <tbody>
+                        <tr>
+                            <td class="border border-gray-300 text-sm w-[40%] h-[47px] px-3">item</td>
+                            <td class="border border-gray-300 text-sm w-[60%] h-[47px] px-3">value</td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 text-sm w-[40%] h-[47px] px-3">Place of Origin</td>
+                            <td class="border border-gray-300 text-sm w-[60%] h-[47px] px-3">Pakistan</td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 text-sm w-[40%] h-[47px] px-3">Model Number</td>
+                            <td class="border border-gray-300 text-sm w-[60%] h-[47px] px-3">HTTC-C B-13083</td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 text-sm w-[40%] h-[47px] px-3">Type</td>
+                            <td class="border border-gray-300 text-sm w-[60%] h-[47px] px-3">Cricket Bat</td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 text-sm w-[40%] h-[47px] px-3">Product Name</td>
+                            <td class="border border-gray-300 text-sm w-[60%] h-[47px] px-3">Willow Cricket Bat</td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 text-sm w-[40%] h-[47px] px-3">Material</td>
+                            <td class="border border-gray-300 text-sm w-[60%] h-[47px] px-3">Willow Wood</td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 text-sm w-[40%] h-[47px] px-3">Color</td>
+                            <td class="border border-gray-300 text-sm w-[60%] h-[47px] px-3">Customized Color</td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 text-sm w-[40%] h-[47px] px-3">Logo</td>
+                            <td class="border border-gray-300 text-sm w-[60%] h-[47px] px-3">Customize Logo Acceptable
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 text-sm w-[40%] h-[47px] px-3">Feature</td>
+                            <td class="border border-gray-300 text-sm w-[60%] h-[47px] px-3">Comfortable</td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 text-sm w-[40%] h-[47px] px-3">Keywords</td>
+                            <td class="border border-gray-300 text-sm w-[60%] h-[47px] px-3">Custom Made Cricket Bat
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 text-sm w-[40%] h-[47px] px-3">MOQ</td>
+                            <td class="border border-gray-300 text-sm w-[60%] h-[47px] px-3">5 PCS</td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 text-sm w-[40%] h-[47px] px-3">Size</td>
+                            <td class="border border-gray-300 text-sm w-[60%] h-[47px] px-3">Custom Size</td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 text-sm w-[40%] h-[47px] px-3">Type</td>
+                            <td class="border border-gray-300 text-sm w-[60%] h-[47px] px-3">Cricket Bat</td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 text-sm w-[40%] h-[47px] px-3">Packing</td>
+                            <td class="border border-gray-300 text-sm w-[60%] h-[47px] px-3">Customized Packing</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="Services">
+                <h1 class="text-2xl font-semibold text-gray-400 capitalize border-b-2 border-gray-400 mb-3">
+                    Specification</h1>
+                <div class="ImgContainer">
+                    <img src="./img/detail/service1.webp" class="w-[750px]">
+                    <img src="./img/detail/service2.webp" class="w-[750px]">
+                </div>
+            </div>
+
+            <div class="OurCate py-5">
+                <h1 class="text-2xl font-semibold text-gray-400 capitalize border-b-2 border-gray-400 mb-3">Our Category
+                </h1>
+                <div class="ImgContainer">
+                    <img src="./img/detail/ourcate1.webp" class="w-[750px]">
+                    <img src="./img/detail/ourcate2.webp" class="w-[750px]">
+                </div>
+            </div>
+
+            <div class="packAndDeli py-5">
+                <h1 class="text-2xl font-semibold text-gray-400 capitalize border-b-2 border-gray-400 mb-3">Packing &
+                    Delivery</h1>
+                <div class="ImgContainer">
+                    <img src="./img/detail/deli1.webp" class="w-[750px]">
+                    <img src="./img/detail/deli2.webp" class="w-[750px]">
+                </div>
+            </div>
+
+            <div class="packAndDeli py-5">
+                <h1 class="text-2xl font-semibold text-gray-400 capitalize border-b-2 border-gray-400 mb-3">Company
+                    Profile</h1>
+                <div class="ImgContainer">
+                    <img src="./img/detail/comprofile.webp" class="w-[750px]">
+                </div>
+                <p class="text-sm text-gray-600">
+                    Hand Tools Trading Corporation was incorporated in 2016 as a Manufacturing Unit having in House
+                    stitching facilities with 100 Stitching Machines, Sublimation Direct Printing & Embroidery setup
+                    under one roof. The company is 100% Export Oriented Specialized in Fitness Gear/ Sports wear /
+                    Boxing Gear/ Falconry Equipment's / Martial Arts & MMA Gear / Leather Garments / American Football /
+                    Working & Safety Wear / Polo Equipment's / Hunting Wear industry.
+                    <br><br>
+                    HTTC Continually maintaining internal quality standards for production. Quality assurance, cost
+                    control, professional services & customer satisfaction are attributes that led to success of
+                    company" A CHALLENGING ENTITY IN THE NATURE OF BUSINESS".
+                    <br><br>
+                    The factory is fully equipped with standard machinery to meet European & American quality standards.
+                    We are having a team of skilled professional to run the business efficiently along with proficient
+                    management for meeting the demands of our customers over and above 180 employees are working as part
+                    of our team.
+                </p>
+            </div>
+
+            <div class="FAQ">
+                <h1 class="text-2xl font-semibold text-gray-400 capitalize border-b-2 border-gray-400 mb-3">FAQ</h1>
+                <b>1. who are we?</b>
+                <p class="text-sm text-gray-600 mb-3">We are based in Punjab, Pakistan, start from 2016,sell to North
+                    America(70.00%),Southern Europe(5.00%),Northern Europe(5.00%),Central America(5.00%),Mid
+                    East(5.00%),Southeast Asia(5.00%),South America(5.00%). There are total about 51-100 people in our
+                    office.</p>
+
+                <b>2. how can we guarantee quality?</b>
+                <p class="text-sm text-gray-600 mb-3">Always a pre-production sample before mass production;<br>
+                    Always final Inspection before shipment;</p>
+
+                <b>3.what can you buy from us?</b>
+                <p class="text-sm text-gray-600 mb-3">Fitness Gear,Sports Wear,Boxing Gear,Falconry Gear,Dental and
+                    Surgical Instruments</p>
+
+                <b>4. why should you buy from us not from other suppliers?</b>
+                <p class="text-sm text-gray-600 mb-3">HTTC Having a team of Uniform Sublimation experts with over 20
+                    years of experience in this industry. <br> HTTC was developed to provide great quality Team
+                    Uniforms, Sports Wear & Fitness Wear product at reasonable prices. <br> Being a UK based brand.</p>
+
+                <b>5. what services can we provide?</b>
+                <p class="text-sm text-gray-600 mb-3">
+                    Accepted Delivery Terms: FOB,CIF,DEQ； <br>
+                    Accepted Payment Currency:USD,EUR,JPY,CAD,AUD,GBP; <br>
+                    Accepted Payment Type: T/T,MoneyGram,Credit Card,PayPal,Western Union,Cash; <br>
+                    Language Spoken:English,Hindi
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container mx-auto border-t border-b border-gray-300 py-10">
+            <h1 class="text-2xl font-semibold mb-5">Frequently bought together</h1>
+            <div class="flex">
+                <a href="#">
+                    <div class="freqCard w-[160px] h-[290px] shadow-xl rounded-xl p-3">
+                        <img src="./img/detail/frequ1.webp" alt="" class="w-[160px] h-[160px]">
+                        <p class="truncate text-sm">Stylish Trending Vanson Double pocket Durable Genuine Leather Zipper
+                            Bones Printed Fashion Leather Jackets</p>
+                        <p class="text-base font-medium">MMK 126,008 - MMK 157,510</p>
+                        <p class="text-sm">Min. order : <span>2</span> pieces</p>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="freqCard w-[160px] mx-8 h-[290px] shadow-xl rounded-xl p-3">
+                        <img src="./img/detail/frequ2.webp" alt="" class="w-[160px] h-[160px]">
+                        <p class="truncate text-sm">Stylish Trending Vanson Double pocket Durable Genuine Leather Zipper
+                            Bones Printed Fashion Leather Jackets</p>
+                        <p class="text-base font-medium">MMK 126,008 - MMK 157,510</p>
+                        <p class="text-sm">Min. order : <span>5</span> pieces</p>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="freqCard w-[160px] mx-8 h-[290px] shadow-xl rounded-xl p-3">
+                        <img src="./img/detail/frequ3.webp" alt="" class="w-[160px] h-[160px]">
+                        <p class="truncate text-sm">Stylish Trending Vanson Double pocket Durable Genuine Leather Zipper
+                            Bones Printed Fashion Leather Jackets</p>
+                        <p class="text-base font-medium">MMK 126,008 - MMK 157,510</p>
+                        <p class="text-sm">Min. order : <span>30</span> pieces</p>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="freqCard w-[160px] mx-8 h-[290px] shadow-xl rounded-xl p-3">
+                        <img src="./img/detail/frequ1.webp" alt="" class="w-[160px] h-[160px]">
+                        <p class="truncate text-sm">Stylish Trending Vanson Double pocket Durable Genuine Leather Zipper
+                            Bones Printed Fashion Leather Jackets</p>
+                        <p class="text-base font-medium">MMK 126,008 - MMK 157,510</p>
+                        <p class="text-sm">Min. order : <span>2</span> pieces</p>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="freqCard w-[160px] h-[290px] shadow-xl rounded-xl p-3">
+                        <img src="./img/detail/frequ4.webp" alt="" class="w-[160px] h-[160px]">
+                        <p class="truncate text-sm">Stylish Trending Vanson Double pocket Durable Genuine Leather Zipper
+                            Bones Printed Fashion Leather Jackets</p>
+                        <p class="text-base font-medium">MMK 126,008 - MMK 157,510</p>
+                        <p class="text-sm">Min. order : <span>10</span> pieces</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="porpularProducts py-5">
+        <div class="container mx-auto border-b border-gray-300 py-10">
+            <h1 class="text-2xl font-semibold mb-5">Supplier's popular products</h1>
+
+            <ul id="popular">
+                <li>
+                    <a href="#" class="block p-3">
+                        <img src="./img/detail/recom1.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="block p-3">
+                        <img src="./img/detail/recom2.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="block p-3">
+                        <img src="./img/detail/recom3.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="block p-3">
+                        <img src="./img/detail/recom4.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="block p-3">
+                        <img src="./img/detail/recom5.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="block p-3">
+                        <img src="./img/detail/recom6.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="block p-3">
+                        <img src="./img/detail/recom7.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="block p-3">
+                        <img src="./img/detail/recom8.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="block p-3">
+                        <img src="./img/detail/recom9.webp" class="w-[130px] h-[130px]">
+                        <ul class="list-none">
+                            <li class="truncate">solid wood cricket bat wooden outdoor game for kids garden game croquet
+                                set</li>
+                            <li class="text-2xl font-semibold">MMK 25,202 - MMK 46,833</li>
+                            <li>: Min. order 100 pieces</li>
+                        </ul>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="py-5 border-b border-gray-300">
+        <div class="container mx-auto">
+            <h1 class="text-2xl font-semibold mb-5">Related searches</h1>
+            <div class="flex gap-5 flex-wrap">
+                <a href="#" class="px-[16px] py-[8px] border border-gray-400 rounded-full hover:border-black">koosh
+                    ball</a>
+                <a href="#" class="px-[16px] py-[8px] border border-gray-400 rounded-full hover:border-black">moon
+                    ball</a>
+                <a href="#" class="px-[16px] py-[8px] border border-gray-400 rounded-full hover:border-black">loopy
+                    ball</a>
+                <a href="#" class="px-[16px] py-[8px] border border-gray-400 rounded-full hover:border-black">China zorb
+                    ball</a>
+                <a href="#" class="px-[16px] py-[8px] border border-gray-400 rounded-full hover:border-black">China
+                    bumper ball</a>
+                <a href="#" class="px-[16px] py-[8px] border border-gray-400 rounded-full hover:border-black">China
+                    velcro balls</a>
+                <a href="#" class="px-[16px] py-[8px] border border-gray-400 rounded-full hover:border-black">8 ball</a>
+                <a href="#" class="px-[16px] py-[8px] border border-gray-400 rounded-full hover:border-black">smash
+                    ball</a>
+                <a href="#" class="px-[16px] py-[8px] border border-gray-400 rounded-full hover:border-black">orb
+                    ball</a>
+                <a href="#" class="px-[16px] py-[8px] border border-gray-400 rounded-full hover:border-black">China
+                    water ball</a>
+                <a href="#" class="px-[16px] py-[8px] border border-gray-400 rounded-full hover:border-black">China
+                    rubber ball</a>
+                <a href="#" class="px-[16px] py-[8px] border border-gray-400 rounded-full hover:border-black">China
+                    polymer balls</a>
+                <a href="#" class="px-[16px] py-[8px] border border-gray-400 rounded-full hover:border-black">foam
+                    ball</a>
+                <a href="#" class="px-[16px] py-[8px] border border-gray-400 rounded-full hover:border-black">aqua
+                    ball</a>
+                <a href="#" class="px-[16px] py-[8px] border border-gray-400 rounded-full hover:border-black">cork
+                    ball</a>
+                <a href="#" class="px-[16px] py-[8px] border border-gray-400 rounded-full hover:border-black">China
+                    koosh ball</a>
+                <a href="#" class="px-[16px] py-[8px] border border-gray-400 rounded-full hover:border-black">China
+                    street balls</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 border-b border-gray-300">
+        <div class="container mx-auto">
+            <ul class="list-none flex ">
+                <li class="me-2 text-sm">
+                    <a href="#">Home</a>
+                    <span class="text-[12px]"><i class="fa-solid fa-angle-right text-[silver]"></i></span>
+                </li>
+                <li class="me-2 text-sm"><a href="#">Sports & Entertainment</a>
+                    <span class="text-[12px]"><i class="fa-solid fa-angle-right text-[silver]"></i></span>
+                </li>
+                <li class="me-2 text-sm"><a href="#">Ball Sports Equipments</a>
+                    <span class="text-[12px]"><i class="fa-solid fa-angle-right text-[silver]"></i></span>
+                </li>
+                <li class="me-2 text-sm"><a href="#">Cricket</a>
+                    <span class="text-[12px]"><i class="fa-solid fa-angle-right text-[silver]"></i></span>
+                </li>
+                <li class="me-2 text-sm text-gray-500"><a href="#">Bats</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="footerSection py-12 border-t-2">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center">
+                <div class="py-3">
+                    <h1 class="font-semibold mb-2">Get Support</h1>
+                    <ul class="list-none">
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Help Center</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Live Chart</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Check order Status</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Refunds</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Report abuse</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="py-3">
+                    <h1 class="font-semibold mb-2">Trade Assurance</h1>
+                    <ul class="list-none">
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Safe and easy payments</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Money-back policy</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">On-time shipping</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">After-sales protections</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Product monitoring services</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="py-3">
+                    <h1 class="font-semibold mb-2">Source on Alibaba.com</h1>
+                    <ul class="list-none">
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Request for Quotation</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Membership program</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Alibaba.com Logistics</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Sales tax and VAT</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Alibaba.com Reads</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="py-3">
+                    <h1 class="font-semibold mb-2">Sell on Alibaba.com</h1>
+                    <ul class="list-none">
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Start selling</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Seller Central</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Become a Verified Supplier</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Partnerships</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Download the app for suppliers</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="py-3">
+                    <h1 class="font-semibold mb-2">Get to know us</h1>
+                    <ul class="list-none">
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">About Alibaba.com</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Corporate responsibility</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">News center</a>
+                        </li>
+                        <li
+                            class="hover:underline text-gray-500 hover:text-black transition duration-300 ease-in-out mb-2">
+                            <a href="#" class="no-underline">Careers</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center py-12">
+                <ul class="list-none flex">
+                    <li><a href="#"><img src="./img/facebook.png" width="28px" class="me-5"></a></li>
+                    <li><a href="#"><img src="./img/linkIn.png" width="28px" class="me-5"></a></li>
+                    <li><a href="#"><img src="./img/twitter.png" width="28px" class="me-5"></a></li>
+                    <li><a href="#"><img src="./img/instagram.png" width="28px" class="me-5"></a></li>
+                    <li><a href="#"><img src="./img/youtube.png" width="28px" class="me-5"></a></li>
+                    <li><a href="#"><img src="./img/tiktok.png" width="28px" class="me-5"></a></li>
+                </ul>
+
+                <div class="flex justify-center items-center">
+                    <p class="text-gray-600">Trade on the go with the <a href="#"
+                            class="text-black underline ms-2">Alibaba.com app</a></p>
+                    <a href="#"><img src="./img/appstore.avif" width="120px" class="h-[40px] mx-5"></a>
+                    <a href="#"><img src="./img/playstore.avif" width="120px" class="h-[40px]"></a>
+                </div>
+            </div>
+
+            <div class="text-sm">
+                <div class="flex justify-center items-center">
+                    <a href="#" class="text-gray-500 hover:underline mx-2">AliExpress</a>
+                    <span class="text-gray-500"> | </span>
+                    <a href="#" class="text-gray-500 hover:underline mx-2">1688.com</a>
+                    <span class="text-gray-500"> | </span>
+                    <a href="#" class="text-gray-500 hover:underline mx-2">Tmall Taobao World</a>
+                    <span class="text-gray-500"> | </span>
+                    <a href="#" class="text-gray-500 hover:underline mx-2">Alipay</a>
+                    <span class="text-gray-500"> | </span>
+                    <a href="#" class="text-gray-500 hover:underline mx-2">Lazada</a>
+                    <span class="text-gray-500"> | </span>
+                    <a href="#" class="text-gray-500 hover:underline mx-2">Taobao Global</a>
+                </div>
+
+                <div class="flex justify-center items-center my-3">
+                    <a href="#" class="text-gray-500 hover:underline me-2">Policies and rules</a>
+                    <span class="text-gray-500 cursor-pointer">Â - </span>
+                    <a href="#" class="text-gray-500 hover:underline me-2">Legal Notice</a>
+                    <span class="text-gray-500 cursor-pointer">Â - </span>
+                    <a href="#" class="text-gray-500 hover:underline me-2">Product Listing Policy</a>
+                    <span class="text-gray-500 cursor-pointer">Â - </span>
+                    <a href="#" class="text-gray-500 hover:underline me-2">Intellectual Property Protection</a>
+                    <span class="text-gray-500 cursor-pointer">Â - </span>
+                    <a href="#" class="text-gray-500 hover:underline me-2">Privacy Policy</a>
+                    <span class="text-gray-500 cursor-pointer">Â - </span>
+                    <a href="#" class="text-gray-500 hover:underline me-2">Terms of Use</a>
+                    <span class="text-gray-500 cursor-pointer">Â - </span>
+                    <a href="#" class="text-gray-500 hover:underline me-2">Integrity Compliance</a>
+                </div>
+
+                <div class="flex justify-center items-center">
+                    <div class="copyright">
+                        <p class="text-gray-500">&copy; 1999- <span id="getYear"></span> Alibaba.com. All rights
+                            reserved.</p>
+                    </div>
+                    <a href="#" class="text-gray-500 ms-3">
+                        <img src="./img/footerImg1.avif" class="inline-block me-2" width="20px"> 浙公网安备 33010002000092号
+                    </a>
+                    <a href="#" class="text-gray-500 ms-3">
+                        <img src="./img/footerImg2.avif" class="inline-block me-2" width="20px"> 浙B2-20120091-4
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="./libs/OwlCarousel/dist/owl.carousel.min.js"></script>
+<script src="./libs/lightslider-master/dist/js/lightslider.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#vertical').lightSlider({
+            gallery: true,
+            item: 1,
+            vertical: true,
+            verticalHeight: 500,
+            vThumbWidth: 50,
+            thumbItem: 5,
+            thumbMargin: 4,
+            slideMargin: 0
+        });
+
+        $('#lightSlider').lightSlider({
+            item: 4,
+            loop: true,
+            slideMove: 2,
+            easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+            speed: 600,
+            responsive: [
+                {
+                    breakpoint: 800,
+                    settings: {
+                        item: 3,
+                        slideMove: 1,
+                        slideMargin: 6,
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        item: 2,
+                        slideMove: 1
+                    }
+                }
+            ]
+        });
+
+        $('#popular').lightSlider({
+            item: 7,
+            loop: true,
+            slideMove: 2,
+            easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+            speed: 600,
+            responsive: [
+                {
+                    breakpoint: 800,
+                    settings: {
+                        item: 3,
+                        slideMove: 1,
+                        slideMargin: 6,
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        item: 2,
+                        slideMove: 1
+                    }
+                }
+            ]
+        });
+
+        $(window).scroll(function () {
+            var scrollTop = $(window).scrollTop();
+            if (scrollTop >= 120) {
+                $('.main-headers').addClass('fixedNav');
+            } else {
+                $('.main-headers').removeClass('fixedNav');
+            }
+        });
+
+        $(".adds").click(function () {
+            var newQty = +($(".qtys").val()) + 1;
+            $(".qtys").val(newQty);
+        });
+
+        $('.decreases').click(function () {
+            if($(".qtys").val() > 5){
+                var newQty = +($(".qtys").val()) -1;
+            $(".qtys").val(newQty);
+            }
+        })
+
+        // price card fixed
+        $(window).scroll(function(){
+            var scrollTop = $(window).scrollTop();
+            if(scrollTop > 700 && scrollTop < 11900){
+                $('.cartSection').addClass('fixedpriceCard');
+            }else{
+                $('.cartSection').removeClass('fixedpriceCard');
+            }
+        });
+    });
+</script>
+
+</html>
